@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.png" alt="Hardened AGENTS.md logo" width="160">
+</p>
+
 <h1 align="center">Hardened AGENTS.md</h1>
 
 <p align="center">Correctness over plausible output.</p>
