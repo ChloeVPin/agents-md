@@ -1,6 +1,6 @@
-# Hardened AGENTS.md
+<h1 align="center">Hardened AGENTS.md</h1>
 
-Correctness over plausible output.
+<p align="center">Correctness over plausible output.</p>
 
 `AGENTS.md` is a compact, verification-first operating contract for coding agents. It sets hard boundaries around scope, assumptions, error handling, and human approval. It also requires the agent to run the project's own validation tools before making a success claim.
 
