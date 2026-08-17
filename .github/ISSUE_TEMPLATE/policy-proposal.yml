@@ -1,0 +1,32 @@
+name: Policy proposal
+description: Suggest a focused change to the policy or its supporting documentation.
+title: "[Proposal]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Proposals should identify a concrete failure mode, evidence gap, or adoption problem.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What failure or maintenance problem should this repository address?
+      placeholder: Describe the observable problem and who it affects.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: What source, incident, or repository behavior supports the proposal?
+      placeholder: Include links, logs, or a reproducible example when available.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed change
+      description: What is the smallest change that would address the problem?
+      placeholder: State the proposed rule or documentation change.
+    validations:
+      required: true

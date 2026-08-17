@@ -1,0 +1,50 @@
+name: Validate repository
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  repository:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Check required files
+        run: |
+          test -f AGENTS.md
+          test -f README.md
+          test -f docs/research.md
+          test -f docs/adoption.md
+          test -f CONTRIBUTING.md
+          test -f SECURITY.md
+          test -f CODE_OF_CONDUCT.md
+          test -f LICENSE
+          test -f .github/PULL_REQUEST_TEMPLATE.md
+      - name: Check Markdown links
+        run: |
+          ruby <<'RUBY'
+          require "pathname"
+
+          root = Pathname.new(Dir.pwd)
+          errors = []
+
+          Dir.glob("**/*.md").each do |relative_source|
+            source = root.join(relative_source)
+            source.read.scan(/\[[^\]]+\]\(([^)\s]+)\)/).flatten.each do |target|
+              next if target.start_with?("#", "http://", "https://", "mailto:")
+
+              target_path = target.split("#", 2).first.split("?", 2).first
+              next if target_path.empty?
+
+              candidate = source.dirname.join(target_path).cleanpath
+              errors << "#{relative_source}: #{target}" unless candidate.exist?
+            end
+          end
+
+          abort("Broken Markdown links:\n#{errors.join("\n")}") unless errors.empty?
+          puts "Markdown links checked"
+          RUBY
