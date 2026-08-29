@@ -20,7 +20,7 @@ A new rule should meet one of these bars:
 - **Principled:** the rule is a sound design principle consistent with the evidence, even if not directly tested as a policy intervention. The rule should explain why it follows from the repository's overall approach.
 - **Readability or pipeline:** the rule is a preference for clarity, token economy, or toolchain compatibility. It should be labeled as such and not presented as an evidence-backed failure-prevention mechanism.
 
-A rule that does not meet any of these bars — for example, a rule based on a hypothetical failure, a personal preference not grounded in clarity or compatibility, or a claim without a traceable source — should not be added.
+A rule that does not meet any of these bars, for example, a rule based on a hypothetical failure, a personal preference not grounded in clarity or compatibility, or a claim without a traceable source, should not be added.
 
 ## Pull request expectations
 
@@ -30,7 +30,7 @@ Keep the diff atomic. Do not commit generated scratch files, rendered PDFs, cred
 
 ## Project Learnings entries
 
-A new Project Learnings entry must be a real, verified failure — not a hypothetical. All of the following must be true:
+A new Project Learnings entry must be a real, verified failure, not a hypothetical. All of the following must be true:
 
 1. An agent caused a concrete failure.
 2. The failure was observed and verified by a human or by objective tooling.
@@ -41,7 +41,7 @@ A new Project Learnings entry must be a real, verified failure — not a hypothe
 Do not populate `Project Learnings` with hypothetical incidents. Entries should follow the shape used in `AGENTS.md`:
 
 ```markdown
-### YYYY-MM-DD — Short title
+### YYYY-MM-DD, Short title
 
 **Failure:** Concise description of the verified agent-caused failure.
 
@@ -64,4 +64,4 @@ The GitHub Actions validation workflow also checks required files and local Mark
 
 When proposing a rule that is intended as a hard boundary, consider whether it can actually be enforced by the model reading this file, or whether it requires harness-level enforcement. Rules that require the model to self-police a hard boundary (workspace confinement, destructive operation approval, dev/prod separation) should note that limitation and point toward harness-level enforcement where it exists.
 
-For rules that are advisory only — dependent on the model reading and following this file — acknowledge that limitation plainly. The policy is instructions for the model, not a security boundary.
+For rules that are advisory only, dependent on the model reading and following this file, acknowledge that limitation plainly. The policy is instructions for the model, not a security boundary.

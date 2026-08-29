@@ -36,7 +36,7 @@ Avoid turning the file into:
 The policy marks each rule group with an evidence grade. When adapting the file, keep the grades honest:
 
 - **Evidence-backed** rules are grounded in controlled evaluation, large-scale empirical study, or multiple real-world incident reports with publicly documented sources. These are the rules most likely to generalize across projects.
-- **Principled** rules are sound design principles consistent with the evidence, but not individually proven as failure-prevention mechanisms. They are still mandatory — the grade is about how we know, not about whether to enforce.
+- **Principled** rules are sound design principles consistent with the evidence, but not individually proven as failure-prevention mechanisms. They are still mandatory, the grade is about how we know, not about whether to enforce.
 - **Readability and pipeline** preferences are not proven to affect agent performance. They are included because they are harmless, often useful, and consistent with the document's style of direct, functional communication. Do not present them as empirical findings when adapting the file.
 
 ## Use the verification loop
@@ -67,19 +67,19 @@ AGENTS.md is instructions for the model, not a security boundary. Two of the for
 
 These are correct, deliberate behaviors for a capability file. They are not bugs. But they mean that this file's prohibitions are enforceable only when the host agent reads and follows them.
 
-For hard boundaries — workspace confinement, destructive operation approval, dev/prod environment separation, access gating — the enforcement must sit in the harness, not the model. When adapting this policy to a project, identify which boundaries must be hard and which are advisory. Do not assume that listing a boundary here makes it hard.
+For hard boundaries, workspace confinement, destructive operation approval, dev/prod environment separation, access gating, the enforcement must sit in the harness, not the model. When adapting this policy to a project, identify which boundaries must be hard and which are advisory. Do not assume that listing a boundary here makes it hard.
 
 The emerging community convention for harness-level enforcement is a separate file (e.g., `agentaccess.txt`) that is evaluated by the harness before anything in the tree is read, including AGENTS.md itself. That file is deliberately disjoint from this one: it never enters model context, and it gates the reading rather than instructing the model. Investigate whether your host tool supports harness-level enforcement and configure it for the boundaries that must be hard.
 
 ## Destructive operations require out-of-band approval
 
-Do not rely on a permission system or safety mode that cannot see the blast radius of a destructive command before approval. An agent running with permissions enabled is not necessarily safe — the Claude Code #10077 incident had permissions enabled, not dangerously-skip-permissions, and still executed recursive rm -rf from root.
+Do not rely on a permission system or safety mode that cannot see the blast radius of a destructive command before approval. An agent running with permissions enabled is not necessarily safe, the Claude Code #10077 incident had permissions enabled, not dangerously-skip-permissions, and still executed recursive rm -rf from root.
 
 For any destructive operation (recursive delete, root-targeted operations, database DROP/DELETE), require explicit out-of-band human approval regardless of any permission setting. Do not disable, bypass, or work around per-command approval, file deletion protection, or external filesystem protection.
 
 ## Loops need termination predicates
 
-Any loop — whether a single agent retrying a task or multiple agents calling each other — must have a measurable, decidable termination predicate defined before execution begins. "The agent is satisfied" is not a termination predicate. Every agent invocation must have a per-agent budget cap and the pipeline must have a hard maximum cost or iteration count.
+Any loop, whether a single agent retrying a task or multiple agents calling each other, must have a measurable, decidable termination predicate defined before execution begins. "The agent is satisfied" is not a termination predicate. Every agent invocation must have a per-agent budget cap and the pipeline must have a hard maximum cost or iteration count.
 
 Observability without enforcement is not safety. The LangChain A2A incident ran for 264 hours and accrued $47,000 in costs because the team had dashboards but no hard caps.
 
@@ -95,7 +95,7 @@ Add a learning only after all of the following are true:
 Use this shape:
 
 ```markdown
-### YYYY-MM-DD — Short title
+### YYYY-MM-DD, Short title
 
 **Failure:** Concise description of the verified agent-caused failure.
 
@@ -104,7 +104,7 @@ Use this shape:
 **Source:** Where this failure is publicly documented.
 ```
 
-Do not add a rule for a failure that has not happened in the project. The current entries in `AGENTS.md` are drawn from externally verified incidents in the agentic coding space — not hypotheticals. When this repository has its own verified failure, replace the placeholder with that incident.
+Do not add a rule for a failure that has not happened in the project. The current entries in `AGENTS.md` are drawn from externally verified incidents in the agentic coding space, not hypotheticals. When this repository has its own verified failure, replace the placeholder with that incident.
 
 ## Host compatibility
 

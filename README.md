@@ -93,7 +93,7 @@ The design is based on the supplied research synthesis and its bibliography, sup
 - [Read the research notes](docs/research.md)
 - [Read the adoption guide](docs/adoption.md)
 - [See the earlier agents-md lineage cited by the research](https://github.com/TheRealSeanDonahoe/agents-md/blob/main/README.md)
-- [AGENTS.md format spec repository (agentsmd/agents.md)](https://github.com/agentsmd/agents.md) — the upstream format. This repository is a hardened derivative.
+- [AGENTS.md format spec repository (agentsmd/agents.md)](https://github.com/agentsmd/agents.md), the upstream format. This repository is a hardened derivative.
 
 ## Contributing
 
