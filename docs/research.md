@@ -161,6 +161,8 @@ The MAST taxonomy identifies failure modes that this single-agent policy does no
 - **FM-1.2: Disobey Role Specification (1.5%)** — partially addressed by the approval requirement before inventing new constructs, but AGENTS.md does not define explicit agent roles, role boundaries, or role-adherence verification. MAST found that improving role specifications alone yields +9.4% success rate improvement, suggesting this is a high-leverage area the policy misses.
 - **FM-1.3: Step Repetition (15.7%)** — only weakly addressed by the surgical-edits directive. No explicit loop detection, step deduplication, or progress-tracking mechanism.
 
+To fully align with the MAST findings, a policy of this kind would need: (1) explicit context-state management and continuity checks to address FM-1.4; (2) defined termination conditions with self-checks to address FM-1.5; (3) role-specification adherence mechanisms to address FM-1.2 (MAST found that improving role specifications alone yields +9.4% success rate improvement); and (4) multi-agent information-sharing and input-consumption rules if the policy is adapted for multi-agent systems. These are out of scope for a single-agent instruction file and would require a different document structure, but they represent the direction in which MAST's evidence points.
+
 ### Earlier lineage
 
 - [agents-md lineage cited by the research](https://github.com/TheRealSeanDonahoe/agents-md/blob/main/README.md)
