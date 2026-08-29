@@ -103,6 +103,20 @@ This is a sound design principle, not an empirically proven failure-prevention m
 | Model-only enforcement limits | Hard boundaries (workspace confinement, destructive op approval, dev/prod separation) must be enforced by the harness, not the model. | Moderate (GitHub #228, #232, #211) |
 | Stylistic rules vs. evidence-backed rules | Rules about punctuation, emojis, ceremonial language, and formatting are readability and pipeline-compatibility preferences, not evidence-backed failure-prevention mechanisms. The derivation statement says so plainly. | Principled (honesty about evidence) |
 
+|*Evidence grade:* The research gaps below are honest about what is not yet well-established in the literature. They do not weaken the policy — they define its current boundary of knowledge.
+
+### Evidence gaps
+
+The following are open questions in the current research base. They are listed so that adopters and contributors know where the evidence is thin:
+
+- **Quantitative prevalence rates are inconsistently reported.** Most sources give relative rankings or counts, not normalized rates per task or per KLOC. Comparing failure rates across studies is difficult.
+- **Real-world incident data is sparse relative to adoption scale.** Most evidence comes from controlled evaluations (SWE-bench, MAS frameworks), not production telemetry from teams using coding agents daily.
+- **Multi-agent and long-horizon compounding is underexplored.** Most studies evaluate single-pass or short-horizon tasks. How failure modes interact or compound over extended agentic horizons is not well characterized.
+- **Failure profiles by language, domain, or task complexity are not separated.** Web, systems, ML — and trivial vs. complex tasks — may have very different failure profiles. No large-scale study separates these dimensions.
+- **The gap between "passes tests" and "is correct" is underexplored.** Code can pass a benchmark test suite and still contain plausible-but-broken behavior. This is exactly the pattern the policy targets, but the literature does not yet quantify how often it survives test suites.
+- **Post-hoc review effectiveness is not well quantified.** If human or automated reviewers systematically miss plausible-but-broken output, the risk is higher than failure rates alone suggest. The policy's human-approval step assumes review is effective — this assumption has not been rigorously tested.
+- **Limited independent replication of commercial/closed-model failure rate claims.** Much of the strongest evidence comes from academic or blog sources, not audited production studies of commercial coding agents.
+
 ## What this project does not claim
 
 - It does not claim that every AGENTS.md improves task success.
