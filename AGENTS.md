@@ -123,6 +123,32 @@ The following rules are preferences for clarity, token economy, or toolchain com
 - When simple, single-spaced prose is clearer, use it. Avoid decorative formatting (headers, multi-column tables, bullet lists) that adds structure without adding information.
 - Never use em-dashes, en-dashes, ellipses, or emojis in generated content. These characters have no place in an agent's output.
 
+### Write like a person, not a language model
+
+The following patterns come from Wikipedia's "Signs of AI writing," maintained by WikiProject AI Cleanup, and are used by the humanizer skill (blader/humanizer). They apply to the prose an agent generates: explanations, comments, documentation, commit messages, and review notes. They do not change how the agent works. They change only how its output reads.
+
+- Avoid inflated importance and legacy language. Words like "pivotal," "groundbreaking," "evolution," "milestone," and "testament" inflate a mundane fact. State what happened without the ceremony.
+- Avoid shallow "-ing" analysis: "symbolizing," "reflecting," "showcasing," "highlighting," "underscoring." These strings together signal AI prose. Keep only what the source actually supports.
+- Avoid sales language and generic positive endings. "Nestled within," "breathtaking," "The future looks bright," "continues to thrive." Replace with the facts.
+- Avoid vague sourcing. "Experts believe," "studies show," "it is widely recognized." Name a real source or remove the claim.
+- Avoid forced groups of three: "innovation, inspiration, and insights." Use the number of items the meaning actually needs.
+- Avoid overused AI words: "actually," "additionally," "quietly," "landscape," "showcasing," "testament," "delve," "garnered." Use plain alternatives.
+- Avoid filler phrases: "in order to," "due to the fact that," "in the event that." Use "to," "because," "if."
+- Avoid too many qualifiers: "could potentially possibly," "may arguably possibly." Use one qualifier, or none.
+- Avoid fake-candid openings: "Honestly? It depends..." or "Let's be real..." State the answer directly.
+- Avoid announcing the next point: "Let's dive in," "One thing that bit me," "Here's the thing." Start with the content.
+- Avoid answering objections no one raised or rejecting fake alternatives. "This isn't mainly about prompt length..." or "A tempting option would be to..., but..." Remove the unsupported defense and keep any real claim.
+- Avoid writing about the old version: "This function was added to replace..." Describe what it does now.
+- Avoid forced punchlines and fragments: "It had no preference. No prior. No nostalgia." Use natural sentence lengths and specific claims.
+- Avoid a heading repeated below itself. If the heading says "Performance," do not follow it with "Performance matters." Let the heading do the work.
+- Avoid title case in headings. Use sentence case: "Strategic negotiations and partnerships," not "Strategic Negotiations And Partnerships."
+- Avoid curly quotes. Use straight quotes: `said "the project"`, not `said "the project"`.
+- Avoid changing names mid-text or repeating sentence openings. Pick one name and stick with it. Merge repeated openings.
+- Prefer naming the actor over passive voice when it helps the reader: "No configuration file needed" becomes "You do not need a configuration file" or "The project does not require a configuration file."
+- Avoid too many hyphenated word pairs: "cross-functional, data-driven, client-facing." Keep only the hyphens grammar needs.
+
+These are output-style rules. They do not override the verification protocol, the scope rules, or any evidence-backed rule in this file. A short, accurate technical statement with no ceremony is the goal.
+
 *Evidence note:* No peer-reviewed study tests whether em-dashes, emojis, ceremonial openers, or verbatim prompt restating measurably degrade agent output quality. Sycophancy has the strongest evidence base among these (Jain et al. 2024, sycophantic models agree with user errors and produce worse factual outcomes; RLHF reward-hacking literature, models learn to flatter evaluators rather than be truthful), but even there the evidence is correlational and from reward-model gaming rather than agent-in-the-loop testing. The em-dash and emoji prohibition is a hard output rule, not a preference. It exists because these characters have no place in functional agent output, not because they have been proven to degrade performance.
 
 ## What AGENTS.md is and is not
