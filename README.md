@@ -8,9 +8,19 @@
 
 `AGENTS.md` is a compact, verification-first operating contract for coding agents. It sets hard boundaries around scope, assumptions, error handling, and human approval. It also requires the agent to run the project's own validation tools before making a success claim.
 
-This repository makes that contract easy to inspect, adapt, and maintain. It contains the policy, the reasoning behind it, an adoption guide, and a small validation layer for the repository itself.
+This repository makes that contract easy to inspect, adapt, and maintain. It contains the policy, an evidence-graded research base, an adoption guide, and a small validation layer for the repository itself.
 
 > An instruction file can improve discipline. It cannot replace tests, review, or technical judgment.
+
+## What's new
+
+This repository has been rebuilt around a research-backed evidence base. The policy now:
+
+- Distinguishes evidence-backed rules (grounded in controlled evaluation, large-scale empirical study, or multiple real-world incidents with sources) from principled rules (sound design principles) and readability/pipeline preferences (clarity and compatibility preferences, not proven to affect agent performance).
+- References primary empirical sources: the MAST taxonomy of multi-agent failures (arXiv:2503.13657), the "What Breaks When LLMs Code?" incident-driven safety study (arXiv:2605.30777), the AGENTS.md context-file evaluation (arXiv:2602.11988), and the package-hallucination analysis (Spracklen et al., USENIX Security 2025).
+- Includes six Project Learnings entries drawn from real, externally verified incidents: Cursor YOLO, Replit production database destruction, Claude Code #10077, LangChain A2A pipeline, Gemini CLI #4586, and Cursor Plan Mode.
+- Is honest about what AGENTS.md is and is not: a repository instruction file for the model, not a security boundary. Two of the format's own design rules (explicit prompt override, nearest-file-wins) make hard enforcement impossible from within the file. Hard boundaries require harness-level enforcement.
+- Documents the emerging community distinction between model-instruction files (AGENTS.md) and harness-level access control (agentaccess.txt), and the four failure categories from the Configuration Effectiveness proposal (load failure, interpretation failure, applicability failure, maintenance failure).
 
 ## Why this exists
 
@@ -78,11 +88,12 @@ The companion research argues for a lean instruction file because extra context 
 
 ## Research and lineage
 
-The design is based on the supplied research synthesis and its bibliography. The research notes distinguish evidence from interpretation and link to the primary or representative sources that shaped the policy.
+The design is based on the supplied research synthesis and its bibliography, supplemented by primary empirical sources and real-world incident reports. The research notes distinguish evidence from interpretation and link to the primary or representative sources that shaped the policy. Evidence grades are assigned honestly.
 
 - [Read the research notes](docs/research.md)
 - [Read the adoption guide](docs/adoption.md)
 - [See the earlier agents-md lineage cited by the research](https://github.com/TheRealSeanDonahoe/agents-md/blob/main/README.md)
+- [AGENTS.md format spec repository (agentsmd/agents.md)](https://github.com/agentsmd/agents.md) — the upstream format. This repository is a hardened derivative.
 
 ## Contributing
 
