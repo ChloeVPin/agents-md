@@ -48,4 +48,4 @@ The research documents distinguish evidence-backed findings from design principl
 
 ## License
 
-MIT. See LICENSE.
+MIT. See [LICENSE](LICENSE).
